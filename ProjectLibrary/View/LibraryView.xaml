@@ -1,0 +1,43 @@
+﻿<Page x:Class="ProjectLibrary.View.LibraryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ProjectLibrary.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="1200"
+             Background="Wheat">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60*" />
+            <RowDefinition Height="760*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+
+        <Image Margin="704,310,35,44" Grid.Row="1" Source="/Images/library-icon.png" Stretch="Fill" Opacity="0.5"/>
+
+        <Button x:Name ="Borrow" Content="Wypożycz" HorizontalAlignment="Left" VerticalAlignment="Center" Height="45" Margin="10,5,0,5" Width="80" Click="Borrow_Click"/>
+        <Button x:Name="Exit"  Content="Wyloguj" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Margin="974,0,0,0" Width="80" Click="Exit_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="1073,7,0,0" TextWrapping="NoWrap" Text="Zalogowany jako:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Name" HorizontalAlignment="Left" Margin="1073,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text=""/>
+        <TextBlock x:Name="Surname" HorizontalAlignment="Left" Margin="1073,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text=""/>
+        <ListBox x:Name="BorrowedList" SelectedIndex="0"  Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="50,150,802,91" FontSize="20" SelectionMode="Single"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="50,30,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Twoje wypożyczenia:" VerticalAlignment="Top" FontSize="48" FontWeight="Bold" Width="904" FontFamily="Broadway"/>
+        <Label Content="Informacje" HorizontalAlignment="Left" Margin="533,146,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="Tytuł: " HorizontalAlignment="Left" Margin="539,184,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Autor: " HorizontalAlignment="Left" Margin="539,216,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Rok wydania: " HorizontalAlignment="Left" Margin="537,248,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Wydanie nr: " HorizontalAlignment="Left" Margin="537,279,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="16"/>
+        <Button x:Name="Return" Content="Zwróć przedmiot" HorizontalAlignment="Left" Margin="539,0,0,0" Grid.Row="1" VerticalAlignment="Center" Width="150" Height="60" Click="Return_Click"/>
+        <TextBlock x:Name="Title" HorizontalAlignment="Left" Margin="588,189,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding SelectedItem.Title, ElementName=BorrowedList}" VerticalAlignment="Top" FontSize="16" FontStyle="Italic"/>
+        <TextBlock x:Name="Author" HorizontalAlignment="Left" Margin="594,221,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding SelectedItem.Author, ElementName=BorrowedList}" VerticalAlignment="Top" FontSize="16" FontStyle="Italic"/>
+        <TextBlock x:Name="Year" HorizontalAlignment="Left" Margin="640,253,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding SelectedItem.Year, ElementName=BorrowedList}" VerticalAlignment="Top" FontSize="16" FontStyle="Italic"/>
+        <TextBlock x:Name="Edition" HorizontalAlignment="Left" Margin="635,284,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding SelectedItem.ReleaseNumber, ElementName=BorrowedList}" VerticalAlignment="Top" FontSize="16" FontStyle="Italic"/>
+
+    </Grid>
+
+</Page>

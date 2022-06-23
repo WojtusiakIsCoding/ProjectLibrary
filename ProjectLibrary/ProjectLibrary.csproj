@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\books-lineart.png" />
+    <None Remove="Images\library-icon.png" />
+    <None Remove="Images\vecteezy_book_1200107.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\books-lineart.png" />
+    <Resource Include="Images\library-icon.png" />
+    <Resource Include="Images\vecteezy_book_1200107.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,57 @@
+﻿<Page x:Class="ProjectLibrary.View.AdminPanelView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProjectLibrary.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1200"
+      Title="AdminPanelView"
+      Background="Wheat">
+
+    <Grid>
+        <ListBox x:Name="Listbox"  Margin="54,198,796,58"/>
+        <Label x:Name="ItemDataBase" Content="Baza przedmiotów" HorizontalAlignment="Left" Margin="54,45,0,0" VerticalAlignment="Top" FontSize="36"/>
+        <Button x:Name="Exit" Content="Wyjdź" HorizontalAlignment="Left" Margin="1105,34,0,0" VerticalAlignment="Top" Height="40" FontSize="14" Width="60" Click="Exit_Click"/>
+        <Button x:Name="All" Content="Wszystko" HorizontalAlignment="Left" Margin="54,163,0,0" VerticalAlignment="Top" Width="70" Height="30" Click="All_Click"/>
+        <Button x:Name="Books" Content="Książki" HorizontalAlignment="Left" Margin="124,163,0,0" VerticalAlignment="Top" Width="70" Height="30" Click="Books_Click"/>
+        <Button x:Name="Magazines" Content="Czasopisma" HorizontalAlignment="Left" Margin="194,163,0,0" VerticalAlignment="Top" Width="70" Height="30" Click="Magazines_Click"/>
+        <Button x:Name="Movies" Content="Filmy" HorizontalAlignment="Left" Margin="264,163,0,0" VerticalAlignment="Top" Width="70" Height="30" Click="Movies_Click"/>
+        <Button x:Name="Scientifics" Content="Naukowe"  HorizontalAlignment="Left" Margin="334,163,0,0" VerticalAlignment="Top" Width="70" Height="30" Click="Scientifics_Click"/>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="680,198,30,58">
+            <Grid Margin="0,0,0,0">
+                <Label Content="Dodawanie przedmiotu" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" FontStyle="Italic"/>
+                <Label Content="Typ:" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+                <RadioButton x:Name="Book" Content="Książka" HorizontalAlignment="Left" Margin="57,63,0,0" VerticalAlignment="Top" FontSize="16" IsChecked="True"/>
+                <RadioButton x:Name="Magazine" Content="Czasopismo" HorizontalAlignment="Left" Margin="137,63,0,0" VerticalAlignment="Top" FontSize="16"/>
+                <RadioButton x:Name="Movie" Content="Film" HorizontalAlignment="Left" Margin="253,63,0,0" VerticalAlignment="Top" FontSize="16" Width="71"/>
+                <RadioButton x:Name="Scientific" Content="Publikacja naukowa" HorizontalAlignment="Left" Margin="309,63,0,0" VerticalAlignment="Top" FontSize="16"/>
+                <Label Content="Tytuł:" HorizontalAlignment="Left" Margin="12,88,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+                <Label Content="Autor:" HorizontalAlignment="Left" Margin="12,119,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+                <Label Content="Rok wydania:" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+                <Label Content="Numer Wydania:" HorizontalAlignment="Left" Margin="10,181,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+                <Label Content="Ilość:" HorizontalAlignment="Left" Margin="10,209,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+                <TextBox x:Name="Title"  HorizontalAlignment="Left" Margin="147,92,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="319" FontSize="16"/>
+                <TextBox x:Name="Author" HorizontalAlignment="Left" Margin="147,123,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="319" FontSize="16"/>
+                <TextBox x:Name="Year" PreviewTextInput="TextBox_PreviewTextInput"  HorizontalAlignment="Left" Margin="147,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80" FontSize="16"/>
+                <TextBox x:Name="Edition" PreviewTextInput="TextBox_PreviewTextInput" HorizontalAlignment="Left" Margin="147,185,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80" FontSize="16"/>
+                <TextBox x:Name="Quantity" PreviewTextInput="TextBox_PreviewTextInput" HorizontalAlignment="Left" Margin="147,217,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80" FontSize="16"/>
+                <Label Content="Usuwanie przedmiotu" HorizontalAlignment="Left" Margin="8,322,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" FontStyle="Italic"/>
+
+            </Grid>
+        </Border>
+        <Button x:Name="Save" Content="Zapisz" HorizontalAlignment="Left" Margin="1035,450,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="16" Click="Save_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="695,570,0,0" TextWrapping="Wrap" Text="Wybierz przedmiot z listy i kliknij &quot;Usuń przedmiot&quot;" VerticalAlignment="Top" FontSize="16"/>
+        <Button x:Name="Delete" Content="Usuń przedmiot" HorizontalAlignment="Left" Margin="1000,622,0,0" VerticalAlignment="Top" Width="135" Height="40" FontSize="16" Click="Delete_Click"/>
+        <Label Content="Wybrany przedmiot: " HorizontalAlignment="Left" Margin="409,198,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <TextBlock x:Name="SelectedTitle" HorizontalAlignment="Left" Margin="418,234,0,0" TextWrapping="NoWrap" Text="{Binding ElementName=Listbox, Path=SelectedItem.Title}" VerticalAlignment="Top" FontSize="16" FontStyle="Italic" Width="257"/>
+        <TextBlock x:Name="SelectedAuthor" HorizontalAlignment="Left" Margin="418,260,0,0" TextWrapping="NoWrap"  Text="{Binding ElementName=Listbox, Path=SelectedItem.Author}" VerticalAlignment="Top" FontSize="16" FontStyle="Italic" Width="257"/>
+        <TextBlock x:Name="SelectedYear" HorizontalAlignment="Left" Margin="418,286,0,0" TextWrapping="Wrap" Text="{Binding ElementName=Listbox, Path=SelectedItem.Year}" VerticalAlignment="Top" FontSize="16" FontStyle="Italic" Width="242"/>
+        <TextBlock x:Name="SelectedEdition" HorizontalAlignment="Left" Margin="494,312,0,0" TextWrapping="Wrap" Text="{Binding ElementName=Listbox, Path=SelectedItem.ReleaseNumber}" VerticalAlignment="Top" FontSize="16" FontStyle="Italic" Width="157"/>
+        <TextBlock x:Name="SelectedQuantity" HorizontalAlignment="Left" Margin="461,338,0,0" TextWrapping="Wrap" Text="{Binding ElementName=Listbox, Path=SelectedItem.Quantity}" VerticalAlignment="Top" FontSize="16" FontStyle="Italic" Width="199"/>
+        <TextBlock HorizontalAlignment="Left" Margin="418,338,0,0" TextWrapping="Wrap" Text="Ilość:" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="418,312,0,0" TextWrapping="Wrap" Text="Wydanie:" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+
+
+    </Grid>
+</Page>
