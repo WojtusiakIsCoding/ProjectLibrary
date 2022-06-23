@@ -9,5 +9,7 @@
         WindowStartupLocation="CenterScreen"
         Source="View/LoginView.xaml"
         ShowsNavigationUI="False"
-        WindowStyle="None"          >
+        WindowStyle="None"
+        ResizeMode="CanResizeWithGrip"
+        AllowsTransparency="True">
 </NavigationWindow>
